@@ -10,7 +10,6 @@ services:
     - "8050:80"
     volumes:
     - ./storage/logs:/var/www/html/storage/logs
-    - snipeit_data:/var/www/html/storage
     depends_on:
     - mariadb
     - redis
@@ -46,7 +45,6 @@ services:
 
 volumes:
   db: {}
-  snipeit_data:
 
 networks:
   snipeit-backend: {}
