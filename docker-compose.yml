@@ -9,7 +9,7 @@ services:
     ports:
     - "8050:80"
     volumes:
-    - ./storage:/var/www/html/storage
+    - ./storage/logs:/var/www/html/storage/logs
     depends_on:
     - mariadb
     - redis
