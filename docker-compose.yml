@@ -15,7 +15,6 @@ services:
     - redis
     env_file:
     - .env.docker
-    - stack.env
     networks:
     - snipeit-backend
 
@@ -25,7 +24,6 @@ services:
     - db:/var/lib/mysql
     env_file:
     - .env.docker
-    - stack.env
     networks:
     - snipeit-backend
     ports:
