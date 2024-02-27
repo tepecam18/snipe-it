@@ -89,6 +89,7 @@ WORKDIR /var/www/html
 
 #Append to bootstrap file (less brittle than 'patch')
 # RUN sed -i 's/return $app;/$env="production";\nreturn $app;/' bootstrap/start.php
+RUN echo "ServerName localhost" >> /usr/local/apache2/conf/httpd.conf
 
 #copy all configuration files
 # COPY docker/*.php /var/www/html/app/config/production/
@@ -105,7 +106,7 @@ RUN \
       && ln -fs "/var/lib/snipeit/keys/ldap_client_tls.cert" "/var/www/html/storage/ldap_client_tls.cert" \
       && ln -fs "/var/lib/snipeit/keys/ldap_client_tls.key" "/var/www/html/storage/ldap_client_tls.key" \
       && chown docker "/var/lib/snipeit/keys/" \
-      && chmod -R 775 /var/www/html/storage/logs/ && chown -h docker "/var/www/html/storage/" \
+      && chmod -R 777 /var/www/html/storage/logs/ && chown -h docker "/var/www/html/storage/" \
       && chmod +x /var/www/html/artisan \
       && echo "Finished setting up application in /var/www/html"
 
