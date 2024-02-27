@@ -15,6 +15,7 @@ services:
     - redis
     env_file:
     - .env.docker
+    - stack.env
     networks:
     - snipeit-backend
 
